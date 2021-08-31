@@ -11,6 +11,9 @@ public class HelloWorld {
 	}
 	
 	static private void run() {
+		
+		Object o = new TestingGrounds();
+		
 		Scanner scan = new Scanner(System.in);
         
 		int num = 0, den = 0;
