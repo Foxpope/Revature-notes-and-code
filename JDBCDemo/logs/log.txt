@@ -1,0 +1,83 @@
+2021-09-01 10:24:24 INFO  com.revature.LoggingDriver:11 - App has started
+2021-09-01 10:26:37 INFO  com.revature.LoggingDriver:11 - App has started
+2021-09-01 10:27:30 INFO  com.revature.LoggingDriver:11 - App has started
+2021-09-01 10:27:30 ERROR com.revature.LoggingDriver:16 - something has gone wrong...
+2021-09-01 10:27:30 INFO  com.revature.LoggingDriver:19 - something went right
+2021-09-01 12:23:23 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 12:23:23 INFO  revature.repositories.UserDao:42 - returned connection
+2021-09-01 12:23:23 INFO  revature.repositories.UserDao:43 - inserted user with id: 8
+2021-09-01 12:23:23 INFO  revature.repositories.UserDao:42 - returned connection
+2021-09-01 12:23:23 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 12:23:24 WARN  revature.repositories.AccountDao:83 - failed to retrieve all accounts with user: 3
+2021-09-01 12:24:50 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 12:24:50 INFO  revature.repositories.UserDao:42 - returned connection
+2021-09-01 12:24:50 ERROR revature.repositories.UserDao:48 - unable to insert user
+2021-09-01 12:24:50 INFO  revature.repositories.UserDao:42 - returned connection
+2021-09-01 12:24:50 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 12:24:50 WARN  revature.repositories.AccountDao:83 - failed to retrieve all accounts with user: 3
+2021-09-01 12:25:23 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 12:25:23 INFO  revature.repositories.UserDao:42 - returned connection
+2021-09-01 12:25:23 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 12:25:23 WARN  revature.repositories.AccountDao:83 - failed to retrieve all accounts with user: 3
+2021-09-01 12:27:59 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 12:27:59 INFO  revature.repositories.UserDao:42 - returned connection
+2021-09-01 12:27:59 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 12:27:59 WARN  revature.repositories.AccountDao:83 - failed to retrieve all accounts with user: 2
+2021-09-01 12:28:06 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 12:28:06 INFO  revature.repositories.UserDao:42 - returned connection
+2021-09-01 12:28:06 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 12:28:06 WARN  revature.repositories.AccountDao:83 - failed to retrieve all accounts with user: 1
+2021-09-01 12:34:03 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 12:34:03 INFO  revature.repositories.UserDao:42 - returned connection
+2021-09-01 12:34:03 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 12:34:03 WARN  revature.repositories.AccountDao:83 - failed to retrieve all accounts with user: 1
+2021-09-01 12:34:30 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 12:34:30 INFO  revature.repositories.UserDao:42 - returned connection
+2021-09-01 12:34:30 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 12:34:30 WARN  revature.repositories.AccountDao:83 - failed to retrieve all accounts with user: 12
+2021-09-01 14:13:58 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 14:13:58 INFO  revature.repositories.UserDao:42 - returned connection
+2021-09-01 14:13:58 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 14:13:58 WARN  revature.repositories.AccountDao:83 - failed to retrieve all accounts with user: 3
+2021-09-01 14:15:14 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 14:15:14 INFO  revature.repositories.UserDao:42 - returned connection
+2021-09-01 14:15:14 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 14:15:14 WARN  revature.repositories.AccountDao:83 - failed to retrieve all accounts with user: 3
+2021-09-01 14:33:37 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 14:33:37 INFO  revature.repositories.UserDao:42 - returned connection
+2021-09-01 14:33:37 INFO  revature.repositories.UserDao:43 - inserted user with id: 8
+2021-09-01 14:33:37 INFO  revature.repositories.UserDao:42 - returned connection
+2021-09-01 14:33:37 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 14:33:37 WARN  revature.repositories.AccountDao:83 - failed to retrieve all accounts with user: 3
+2021-09-01 14:35:27 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 14:35:27 INFO  revature.repositories.UserDao:42 - returned connection
+2021-09-01 14:35:27 ERROR revature.repositories.UserDao:48 - unable to insert user
+2021-09-01 14:35:27 INFO  revature.repositories.UserDao:42 - returned connection
+2021-09-01 14:35:27 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 14:35:27 WARN  revature.repositories.AccountDao:83 - failed to retrieve all accounts with user: 3
+2021-09-01 14:35:43 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 14:35:43 INFO  revature.repositories.UserDao:42 - returned connection
+2021-09-01 14:35:43 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 14:35:43 WARN  revature.repositories.AccountDao:83 - failed to retrieve all accounts with user: 3
+2021-09-01 14:36:39 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 14:36:39 INFO  revature.repositories.UserDao:42 - returned connection
+2021-09-01 14:36:39 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 14:36:39 WARN  revature.repositories.AccountDao:83 - failed to retrieve all accounts with user: 3
+2021-09-01 14:39:30 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 14:39:30 INFO  revature.repositories.UserDao:42 - returned connection
+2021-09-01 14:39:30 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 14:39:30 WARN  revature.repositories.AccountDao:83 - failed to retrieve all accounts with user: 4
+2021-09-01 14:45:51 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 14:45:51 INFO  revature.repositories.UserDao:42 - returned connection
+2021-09-01 14:45:52 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 14:45:52 WARN  revature.repositories.AccountDao:85 - failed to retrieve all accounts with user: 4
+2021-09-01 14:55:19 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 14:55:19 INFO  revature.repositories.UserDao:42 - returned connection
+2021-09-01 14:55:19 INFO  revature.repositories.UserDao:43 - inserted user with id: 8
+2021-09-01 14:55:19 INFO  revature.repositories.UserDao:42 - returned connection
+2021-09-01 14:55:19 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 14:55:19 WARN  revature.repositories.AccountDao:85 - failed to retrieve all accounts with user: 1
+2021-09-01 14:59:48 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 14:59:48 INFO  revature.repositories.UserDao:42 - returned connection
+2021-09-01 14:59:48 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 14:59:48 WARN  revature.repositories.AccountDao:86 - failed to retrieve all accounts with user: 1
