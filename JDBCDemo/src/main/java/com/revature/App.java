@@ -17,9 +17,9 @@ public class App {
 		
 		ConnectionUtil.getConnection();
 		
-		User u1 = new User("Batman", "pass", Role.Admin, new ArrayList<Account>());
+		//User u1 = new User("Batman", "pass", Role.Admin, new ArrayList<Account>());
 		
-		UserDao ud = new UserDao();
+		//UserDao ud = new UserDao();
 		
 		//int correctExec = ud.insert(u1);
 		
@@ -27,11 +27,11 @@ public class App {
 		
 		IAccountDao adao = new AccountDao();
 		
-		List<Account> accounts = adao.findAll()
+		//List<Account> accounts = adao.findAll()
 ;
-		System.out.println(accounts);
+		//System.out.println(accounts);
 		
-		System.out.println(adao.findByOwner(1));
+		System.out.println(adao.findByOwner(3));
 		
 		//System.out.print("print username: ");
 		

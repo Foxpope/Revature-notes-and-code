@@ -81,3 +81,18 @@
 2021-09-01 14:59:48 INFO  revature.repositories.UserDao:42 - returned connection
 2021-09-01 14:59:48 INFO  revature.repositories.UserDao:63 - db connection established
 2021-09-01 14:59:48 WARN  revature.repositories.AccountDao:86 - failed to retrieve all accounts with user: 1
+2021-09-01 16:57:32 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 16:57:32 INFO  revature.repositories.UserDao:42 - returned connection
+2021-09-01 16:57:32 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 16:57:32 WARN  revature.repositories.AccountDao:86 - failed to retrieve all accounts with user: 1
+2021-09-01 17:03:07 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 17:03:07 INFO  revature.repositories.UserDao:42 - returned connection
+2021-09-01 17:03:07 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 17:04:44 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 17:04:44 INFO  revature.repositories.UserDao:42 - returned connection
+2021-09-01 17:06:34 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 17:06:34 INFO  revature.repositories.UserDao:42 - returned connection
+2021-09-01 17:06:45 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 17:06:45 INFO  revature.repositories.UserDao:42 - returned connection
+2021-09-01 17:06:56 INFO  revature.repositories.UserDao:63 - db connection established
+2021-09-01 17:06:56 INFO  revature.repositories.UserDao:42 - returned connection
