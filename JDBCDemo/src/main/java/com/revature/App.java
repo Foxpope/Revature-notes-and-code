@@ -17,19 +17,19 @@ public class App {
 		
 		ConnectionUtil.getConnection();
 		
-		//User u1 = new User("Batman", "pass", Role.Admin, new ArrayList<Account>());
+		User u1 = new User("Batman", "pass", Role.Admin, new ArrayList<Account>());
 		
-		//UserDao ud = new UserDao();
+		UserDao ud = new UserDao();
 		
-		//int correctExec = ud.insert(u1);
+		int correctExec = ud.insert(u1);
 		
-		//System.out.println(correctExec);
+		System.out.println(correctExec);
 		
 		IAccountDao adao = new AccountDao();
 		
-		//List<Account> accounts = adao.findAll()
+		List<Account> accounts = adao.findAll()
 ;
-		//System.out.println(accounts);
+		System.out.println(accounts);
 		
 		System.out.println(adao.findByOwner(3));
 		

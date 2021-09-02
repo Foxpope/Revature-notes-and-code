@@ -54,7 +54,7 @@ public class ConnectionUtil {
 		String password = "";
 		
 		try {
-			prop.load(new FileReader("C:\\Users\\zodia\\Documents\\Revature\\Revature-notes-and-code\\JDBCDemo\\src\\main\\resources\\new.properties"));
+			prop.load(new FileReader("C:\\Users\\zodia\\Documents\\GitHub\\Revature-notes-and-code\\JDBCDemo\\src\\main\\resources\\new.properties"));
 			url = prop.getProperty("url");
 			username = prop.getProperty("username");
 			password = prop.getProperty("password");
