@@ -51,8 +51,29 @@ public class AccountDao implements IAccountDao {
 
 	@Override
 	public int insert(Account a) {
-		// TODO Auto-generated method stub
-		return 0;
+		try (Connection conn = ConnectionUtil.getConnection()) {
+			String sql = "INSERT INTO rashidt.accounts (balance, acc_owner) VALUES (?, ?) RETURNING rashidt.accounts.id";
+			
+			//prepare statement
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			
+			stmt.setDouble(1, a.getBalance());
+			stmt.setInt(2, a.getOwnerId());
+			
+			ResultSet rs;
+			
+			if((rs = stmt.executeQuery()) != null) {
+				rs.next();
+				int id =rs.getInt(1);
+				return id;
+			}
+		} catch (SQLException e) {
+			log.warn("unable to insert account");
+			e.printStackTrace();
+			//-1 returns when there is an issue
+			return -1;
+		}
+		return -1;
 	}
 
 	@Override
@@ -64,7 +85,7 @@ public class AccountDao implements IAccountDao {
 			String sql = "SELECT rashidt.accounts.id, rashidt.accounts.balance\r\n"
 					+ "	FROM rashidt.accounts\r\n"
 					+ "	INNER JOIN rashidt.users_account_jt\r\n"
-					+ "	ON rashidt.accounts.id = rashidt.users_account_jt.acc_owner\r\n"
+					+ "	ON rashidt.accounts.id = rashidt.users_account_jt.account\r\n"
 					+ " WHERE rashidt.accounts.id = ?;"; // joins statement
 
 			PreparedStatement stmt = conn.prepareStatement(sql);

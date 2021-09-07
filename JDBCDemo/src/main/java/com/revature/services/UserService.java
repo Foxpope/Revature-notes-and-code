@@ -10,11 +10,14 @@ import com.revature.repositories.IUserDao;
 import com.revature.repositories.UserDao;
 
 
-public class UserService implements IUserService{
+public class UserService {
+	
+	//directly injecting the interface specs that the service class depends on
+	//dependency injection
+	public IUserDao udao = new UserDao();
 	
 	private static Logger log = Logger.getLogger(UserService.class);
 	
-	@Override
 	public User register(User u) {
 		//takes in user object
 		log.info("registering new user...");

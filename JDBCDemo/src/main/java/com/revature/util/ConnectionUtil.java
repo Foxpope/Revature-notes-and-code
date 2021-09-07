@@ -1,6 +1,5 @@
 package com.revature.util;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
@@ -11,8 +10,6 @@ import java.util.Properties;
 import org.apache.log4j.Logger;
 
 import com.revature.repositories.UserDao;
-
-import jdk.internal.org.jline.utils.Log;
 
 /*
  * Singleton design pattern

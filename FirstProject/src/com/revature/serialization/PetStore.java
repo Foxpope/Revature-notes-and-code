@@ -15,7 +15,7 @@ public class PetStore {
 	//every pet store has a database
 	//we can put an array list here and infer it will hold pet objects
 	//List = arraylist is used so that you have more flexibility to change it later
-	private List<Pet> petDB = new ArrayList<>();
+	List<Pet> petDB = new ArrayList<>();
 	
 	public List<Pet> getPetDB() {
 		return petDB;
