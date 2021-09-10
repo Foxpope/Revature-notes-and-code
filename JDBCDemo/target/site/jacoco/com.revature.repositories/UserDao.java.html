@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserDao.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JDBCDemo</a> &gt; <a href="index.source.html" class="el_package">com.revature.repositories</a> &gt; <span class="el_source">UserDao.java</span></div><h1>UserDao.java</h1><pre class="source lang-java linenums">package com.revature.repositories;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Types;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.apache.log4j.Logger;
+
+import com.revature.models.Account;
+import com.revature.models.Role;
+import com.revature.models.User;
+import com.revature.util.ConnectionUtil;
+
+<span class="fc" id="L20">public class UserDao implements IUserDao{</span>
+	
+<span class="fc" id="L22">	private static Logger log = Logger.getLogger(UserDao.class);</span>
+
+	@Override
+	public int insert(User u) {
+		
+		try {
+<span class="nc" id="L28">			Connection conn = ConnectionUtil.getConnection();</span>
+			
+			//start with sql string
+			
+<span class="nc" id="L32">			String sql = &quot;INSERT INTO rashidt.users (username, pwd, user_role) VALUES (?, ?, ?) RETURNING rashidt.users.id&quot;;</span>
+			
+<span class="nc" id="L34">			PreparedStatement stmt = conn.prepareStatement(sql);</span>
+			
+<span class="nc" id="L36">			stmt.setString(1, u.getUsername());</span>
+<span class="nc" id="L37">			stmt.setString(2, u.getPassword());</span>
+			
+			//the enum is tough because we have to accommodate for a separate custom enum type
+<span class="nc" id="L40">			stmt.setObject(3, u.getRole(), Types.OTHER);</span>
+			
+			ResultSet rs; //our SQL statement will return a value; we need to iterate over it
+			
+<span class="nc bnc" id="L44" title="All 2 branches missed.">			if ((rs = stmt.executeQuery()) != null) {</span>
+<span class="nc" id="L45">				rs.next();</span>
+<span class="nc" id="L46">				int id = rs.getInt(1);</span>
+				
+<span class="nc" id="L48">				log.info(&quot;inserted user with id: &quot; + id);</span>
+<span class="nc" id="L49">				return id; //if everything goes well this is where the method returns</span>
+			}
+			
+<span class="nc" id="L52">		} catch (SQLException e) {</span>
+<span class="nc" id="L53">			log.error(&quot;unable to insert user&quot;);</span>
+<span class="nc" id="L54">			e.printStackTrace();</span>
+<span class="nc" id="L55">		}</span>
+		
+<span class="nc" id="L57">		return -1; //if this line is used, then there was an error</span>
+	}
+
+	@Override
+	public User findByUsername(String username) {
+		// TODO Auto-generated method stub
+<span class="nc" id="L63">		return null;</span>
+	}
+
+	@Override
+	public List&lt;User&gt; findAll() {
+		// First start off with an empty array list
+<span class="nc" id="L69">				List&lt;User&gt; allUsers = new ArrayList&lt;User&gt;();</span>
+
+<span class="nc" id="L71">				try (Connection conn = ConnectionUtil.getConnection()) {</span>
+
+					// We populate and fill the allUsers list
+<span class="nc" id="L74">					Statement stmt = conn.createStatement();</span>
+
+					// String to represent the SQL Query
+<span class="nc" id="L77">					String sql = &quot;SELECT sophiag.users.id, sophiag.users.username, sophiag.users.pwd, sophiag.users.user_role,&quot;</span>
+							+ &quot; sophiag.accounts.id AS account_id, sophiag.accounts.balance FROM sophiag.users &quot;
+							+ &quot;LEFT JOIN sophiag.users_accounts_jt ON sophiag.users.id = sophiag.users_accounts_jt.acc_owner &quot;
+							+ &quot;LEFT JOIN sophiag.accounts ON sophiag.accounts.id = sophiag.users_accounts_jt.account&quot;;
+
+<span class="nc" id="L82">					ResultSet rs = stmt.executeQuery(sql); // send the statement to the DB and produce an iterator</span>
+
+					// Iterate through the response, one row at a time
+<span class="nc bnc" id="L85" title="All 2 branches missed.">					while (rs.next()) {</span>
+
+						// for each row, grab the data from each column
+<span class="nc" id="L88">						int id = rs.getInt(&quot;id&quot;);</span>
+<span class="nc" id="L89">						String username = rs.getString(&quot;username&quot;);</span>
+<span class="nc" id="L90">						String password = rs.getString(&quot;pwd&quot;);</span>
+
+<span class="nc" id="L92">						Role role = Role.valueOf(rs.getString(&quot;user_role&quot;));</span>
+
+<span class="nc" id="L94">						int accountId = rs.getInt(&quot;account_id&quot;);</span>
+<span class="nc" id="L95">						double balance = rs.getDouble(&quot;balance&quot;);</span>
+
+<span class="nc bnc" id="L97" title="All 2 branches missed.">						if (accountId == 0) {</span>
+
+<span class="nc" id="L99">							allUsers.add(new User(id, username, password, role, new ArrayList&lt;&gt;())); </span>
+							// we can give the User an empty list of accounts because they don't have one...
+							// 0 is default acc_id in DBeaver.
+
+						} else {
+<span class="nc" id="L104">							Account a = new Account(accountId, balance);</span>
+
+							// We will cover Streams later, you're welcome to research this in the time being
+							// you don't need to use it unless you have queries that are as complex
+<span class="nc bnc" id="L108" title="All 2 branches missed.">							List&lt;User&gt; potentialOwners = allUsers.stream().filter((u) -&gt; u.getId() == id) </span>
+<span class="nc" id="L109">									.collect(Collectors.toList()); // We are trying to find all of the users that have the same id</span>
+							// (u) represents each element in the stream (think Collection, but different...why?)
+
+<span class="nc bnc" id="L112" title="All 2 branches missed.">							if (potentialOwners.isEmpty()) {</span>
+<span class="nc" id="L113">								List&lt;Account&gt; ownedAccounts = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L114">								ownedAccounts.add(a);</span>
+<span class="nc" id="L115">								User u = new User(id, username, password, role, ownedAccounts);</span>
+<span class="nc" id="L116">								allUsers.add(u);</span>
+<span class="nc" id="L117">							} else {</span>
+								// the owner of this account object already exists
+<span class="nc" id="L119">								User u = potentialOwners.get(0);</span>
+								// u.addAccount(a); // we need to create an add Account method in User class
+								// THIS IS UP TO YOU!!!!!!!!!!!!!
+							}
+						}
+<span class="nc" id="L124">					}</span>
+<span class="nc" id="L125">				} catch (SQLException e) {</span>
+<span class="nc" id="L126">					log.error(&quot;We failed to retrieve all users!&quot;);</span>
+<span class="nc" id="L127">					return new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L128">				}</span>
+
+<span class="nc" id="L130">				return allUsers;</span>
+	}
+
+	@Override
+	public boolean update(User u) {
+		// TODO Auto-generated method stub
+<span class="nc" id="L136">		return false;</span>
+	}
+
+	@Override
+	public boolean delete(int id) {
+		// TODO Auto-generated method stub
+<span class="nc" id="L142">		return false;</span>
+	}
+
+	
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

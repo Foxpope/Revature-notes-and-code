@@ -143,3 +143,6 @@
 2021-09-05 18:14:04 INFO  revature.repositories.UserDao:48 - inserted user with id: 11
 2021-09-05 18:14:04 INFO  revature.services.UserService:39 - registration of user with id 11 was successful.
 2021-09-05 18:14:17 INFO  revature.repositories.UserDao:39 - returned connection
+2021-09-09 10:25:59 INFO  revature.services.UserService:23 - registering new user...
+2021-09-09 10:25:59 INFO  revature.services.UserService:23 - registering new user...
+2021-09-09 10:25:59 INFO  revature.services.UserService:39 - registration of user with id 91 was successful.

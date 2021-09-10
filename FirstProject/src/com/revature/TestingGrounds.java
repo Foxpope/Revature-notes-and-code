@@ -11,9 +11,8 @@ public class TestingGrounds {
 	}
 
 	public static void thing(int i) {
-		Integer[] onts = {1, 4, 7, null};
+		String s = "1";
 		
-		
-		System.out.println(onts.length);
+		System.out.println(s.toUpperCase());
 	}
 }

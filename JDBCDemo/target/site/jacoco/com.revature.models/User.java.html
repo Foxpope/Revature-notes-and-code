@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>User.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JDBCDemo</a> &gt; <a href="index.source.html" class="el_package">com.revature.models</a> &gt; <span class="el_source">User.java</span></div><h1>User.java</h1><pre class="source lang-java linenums">package com.revature.models;
+
+import java.io.Serializable;
+import java.util.List;
+
+//this is a java bean
+public class User implements Serializable{
+
+	private static final long serialVersionUID = -4553508689874995351L;
+	private int id; //be represented in database by a primary key (and serial)
+	private String username;
+	private String password;
+	private Role role;
+	private List&lt;Account&gt; accounts;
+	
+	//the no args constructor allows you to create objeects that you can then set data on later
+	//using the getters/setters (that's why you need one in a BEAN; they synergize well)
+	public User() {
+<span class="fc" id="L19">		super();</span>
+<span class="fc" id="L20">	}</span>
+
+	//constructors with and without ids
+	public User(int id, String username, String password, Role role, List&lt;Account&gt; accounts) {
+<span class="fc" id="L24">		super();</span>
+<span class="fc" id="L25">		this.id = id;</span>
+<span class="fc" id="L26">		this.username = username;</span>
+<span class="fc" id="L27">		this.password = password;</span>
+<span class="fc" id="L28">		this.role = role;</span>
+<span class="fc" id="L29">		this.accounts = accounts;</span>
+<span class="fc" id="L30">	}</span>
+
+	//this allow me to create a user from within my &quot;business layer&quot;
+	//a.k.a. JAva application
+	//a user will have an id generated once it uses the database
+	public User(String username, String password, Role role, List&lt;Account&gt; accounts) {
+<span class="nc" id="L36">		super();</span>
+<span class="nc" id="L37">		this.username = username;</span>
+<span class="nc" id="L38">		this.password = password;</span>
+<span class="nc" id="L39">		this.role = role;</span>
+<span class="nc" id="L40">		this.accounts = accounts;</span>
+<span class="nc" id="L41">	}</span>
+
+	public int getId() {
+<span class="fc" id="L44">		return id;</span>
+	}
+	
+	public Role getRole() {
+<span class="nc" id="L48">		return role;</span>
+	}
+
+	public void setRole(Role role) {
+<span class="nc" id="L52">		this.role = role;</span>
+<span class="nc" id="L53">	}</span>
+
+	public void setId(int id) {
+<span class="fc" id="L56">		this.id = id;</span>
+<span class="fc" id="L57">	}</span>
+
+	public String getUsername() {
+<span class="nc" id="L60">		return username;</span>
+	}
+
+	public void setUsername(String username) {
+<span class="nc" id="L64">		this.username = username;</span>
+<span class="nc" id="L65">	}</span>
+
+	public String getPassword() {
+<span class="nc" id="L68">		return password;</span>
+	}
+
+	public void setPassword(String password) {
+<span class="nc" id="L72">		this.password = password;</span>
+<span class="nc" id="L73">	}</span>
+
+	public List&lt;Account&gt; getAccounts() {
+<span class="nc" id="L76">		return accounts;</span>
+	}
+
+	public void setAccounts(List&lt;Account&gt; accounts) {
+<span class="fc" id="L80">		this.accounts = accounts;</span>
+<span class="fc" id="L81">	}</span>
+
+	@Override
+	public int hashCode() {
+<span class="nc" id="L85">		final int prime = 31;</span>
+<span class="nc" id="L86">		int result = 1;</span>
+<span class="nc" id="L87">		result = prime * result + id;</span>
+<span class="nc bnc" id="L88" title="All 2 branches missed.">		result = prime * result + ((password == null) ? 0 : password.hashCode());</span>
+<span class="nc bnc" id="L89" title="All 2 branches missed.">		result = prime * result + ((username == null) ? 0 : username.hashCode());</span>
+<span class="nc" id="L90">		return result;</span>
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+<span class="nc bnc" id="L95" title="All 2 branches missed.">		if (this == obj)</span>
+<span class="nc" id="L96">			return true;</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">		if (obj == null)</span>
+<span class="nc" id="L98">			return false;</span>
+<span class="nc bnc" id="L99" title="All 2 branches missed.">		if (getClass() != obj.getClass())</span>
+<span class="nc" id="L100">			return false;</span>
+<span class="nc" id="L101">		User other = (User) obj;</span>
+<span class="nc bnc" id="L102" title="All 2 branches missed.">		if (id != other.id)</span>
+<span class="nc" id="L103">			return false;</span>
+<span class="nc bnc" id="L104" title="All 2 branches missed.">		if (password == null) {</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">			if (other.password != null)</span>
+<span class="nc" id="L106">				return false;</span>
+<span class="nc bnc" id="L107" title="All 2 branches missed.">		} else if (!password.equals(other.password))</span>
+<span class="nc" id="L108">			return false;</span>
+<span class="nc bnc" id="L109" title="All 2 branches missed.">		if (username == null) {</span>
+<span class="nc bnc" id="L110" title="All 2 branches missed.">			if (other.username != null)</span>
+<span class="nc" id="L111">				return false;</span>
+<span class="nc bnc" id="L112" title="All 2 branches missed.">		} else if (!username.equals(other.username))</span>
+<span class="nc" id="L113">			return false;</span>
+<span class="nc" id="L114">		return true;</span>
+	}
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

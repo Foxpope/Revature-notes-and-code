@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.revature.AccountServiceTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.126 s <<< FAILURE! - in com.revature.AccountServiceTest
-testFindByOwnerId_returnAccountList(com.revature.AccountServiceTest)  Time elapsed: 0.101 s  <<< FAILURE!
-java.lang.AssertionError: expected:<[Account [id=1, balance=500.0, ownerId=0], Account [id=2, balance=600.0, ownerId=0]]> but was:<null>
-	at com.revature.AccountServiceTest.testFindByOwnerId_returnAccountList(AccountServiceTest.java:62)
-
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.221 s - in com.revature.AccountServiceTest

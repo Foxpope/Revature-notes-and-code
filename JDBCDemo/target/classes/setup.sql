@@ -37,6 +37,24 @@ CREATE TABLE rashidt.applications (
 	app_owner INTEGER NOT NULL REFERENCES rashidt.users(id)
 );
 
+CREATE OR REPLACE FUNCTION rashidt.auto_insert_into_jt() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+	
+	INSERT INTO
+		rashidt.users_account_jt(acc_owner, account)
+		VALUES(NEW.acc_owner, NEW.id);
+	
+			RETURN NEW;
+END
+$BODY$
+LANGUAGE plpgsql;
+
+CREATE TRIGGER trig
+	AFTER INSERT ON rashidt.accounts 
+	FOR EACH ROW
+	EXECUTE PROCEDURE rashidt.auto_insert_into_jt();
+
 INSERT INTO rashidt.users(username, pwd, user_role) 
 	VALUES ('Larry', 'secret', 'Employee'),
 			('Mary', '1234', 'Customer'),

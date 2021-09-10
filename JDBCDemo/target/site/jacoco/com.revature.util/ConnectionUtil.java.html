@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ConnectionUtil.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JDBCDemo</a> &gt; <a href="index.source.html" class="el_package">com.revature.util</a> &gt; <span class="el_source">ConnectionUtil.java</span></div><h1>ConnectionUtil.java</h1><pre class="source lang-java linenums">package com.revature.util;
+
+import java.io.FileReader;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Properties;
+
+import org.apache.log4j.Logger;
+
+import com.revature.repositories.UserDao;
+
+/*
+ * Singleton design pattern
+ * 
+ * singleton design pattern instantiates an object once
+ * 
+ * -private constructor
+ * -static fielf of instance of class to be returned
+ * -leverage a public static
+ * 
+ */
+public class ConnectionUtil {
+	
+<span class="nc" id="L26">	private static Logger log = Logger.getLogger(UserDao.class);</span>
+
+<span class="nc" id="L28">	private static Connection conn = null;</span>
+
+	// we want a private constructor
+	private ConnectionUtil() {
+		super();
+	}
+
+	//in a singleton, you want a static getInstance() method
+	public static Connection getConnection() {
+		try {
+<span class="nc bnc" id="L38" title="All 4 branches missed.">			if (conn != null &amp;&amp; !conn.isClosed()) {</span>
+<span class="nc" id="L39">				log.info(&quot;returned connection&quot;);</span>
+<span class="nc" id="L40">				return conn;</span>
+			}
+<span class="nc" id="L42">		} catch (SQLException e) {</span>
+<span class="nc" id="L43">			log.error(&quot;failed to reuse a connection&quot;);</span>
+<span class="nc" id="L44">			return null;</span>
+<span class="nc" id="L45">		}</span>
+		
+<span class="nc" id="L47">		Properties prop = new Properties();</span>
+		
+<span class="nc" id="L49">		String url = &quot;&quot;;</span>
+<span class="nc" id="L50">		String username = &quot;&quot;;</span>
+<span class="nc" id="L51">		String password = &quot;&quot;;</span>
+		
+		try {
+<span class="nc" id="L54">			prop.load(new FileReader(&quot;C:\\Users\\zodia\\Documents\\GitHub\\Revature-notes-and-code\\JDBCDemo\\src\\main\\resources\\new.properties&quot;));</span>
+<span class="nc" id="L55">			url = prop.getProperty(&quot;url&quot;);</span>
+<span class="nc" id="L56">			username = prop.getProperty(&quot;username&quot;);</span>
+<span class="nc" id="L57">			password = prop.getProperty(&quot;password&quot;);</span>
+<span class="nc" id="L58">			conn = DriverManager.getConnection(url, username, password);</span>
+			
+<span class="nc" id="L60">			log.info(&quot;db connection established&quot;);</span>
+//		} catch (FileNotFoundException e) {
+//			
+//			e.printStackTrace();
+<span class="nc" id="L64">		} catch (IOException e) {</span>
+<span class="nc" id="L65">			log.error(&quot;cannot locate application.properties file&quot;);</span>
+<span class="nc" id="L66">			e.printStackTrace();</span>
+<span class="nc" id="L67">		} catch (SQLException e) {</span>
+<span class="nc" id="L68">			log.error(&quot;cannot establish database connection&quot;);</span>
+<span class="nc" id="L69">			return null;</span>
+<span class="nc" id="L70">		}</span>
+<span class="nc" id="L71">		return conn;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
