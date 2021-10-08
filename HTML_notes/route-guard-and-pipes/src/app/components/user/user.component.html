@@ -1,0 +1,5 @@
+<h2>Users</h2>
+
+<div *ngFor="let u of userService.users">
+    <span>{{u.name}}'s theory is {{getTheory(u.id)?.title}}</span>
+</div>

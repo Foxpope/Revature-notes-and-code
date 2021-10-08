@@ -1,0 +1,12 @@
+@import url('for-import.css');
+
+body {
+    background-color: rgb(109, 97, 156);
+}
+
+#my-div {
+
+    /**this will be overwritten by the inline style
+    **/
+    background-color: royalblue;
+}

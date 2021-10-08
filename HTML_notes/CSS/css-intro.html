@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--CSS here-->
+    <style>
+        body {
+            font-family: fantasy;
+            margin: 50px;
+            max-width: 800px;
+        }
+
+        p {
+            font-weight: 800;
+        }
+
+        #my-div {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            padding-left: 30%;
+            border: 2px aqua;
+            color: lime;
+            background-color: maroon;
+        }
+
+        #my-class {
+            margin-top: 20%;
+        }
+
+    </style>
+
+    <link rel="stylesheet" href="styles/styles.css">
+
+</head>
+
+<body>
+
+    <h1>Intro to CSS</h1>
+
+    <p>
+        <abbr title="Cascading Style Sheets">CSS</abbr> can be included in 3 different ways:
+
+    <ol>
+        <li>inline styling eith the <code>attribute</code></li>
+        <li>internal styling using the <code>style</code> tag in the <code>head</code> of the html doc</li>
+        <li>external style using the <code>link</code> element in the <code>head</code> of the html doc</li>
+    </ol>
+
+    </p>
+
+    <div>
+        <h4>CSS rules are defined by key/value pairs, separated by a colon { : }</h4>
+        <p style="color: lightcoral;">color rule example</p>
+        <span style="background-color: aqua; color: blueviolet;">more text to demo inline styling</span>
+    </div>
+
+    <div>
+        <h2>Selectors</h2>
+
+        <h3>Classes &amp; ID's</h3>
+
+        <div id="my-div">
+            <p>some text</p>
+        </div>
+        <div class="my-class">
+            <p>this is of class <code>my-class</code></p>
+        </div>
+
+    </div>
+</body>
+
+</html>
